@@ -4,7 +4,7 @@ import websockets
 import json
 import requests
 import threading
-import os  # IMPORTANTE para que funcione en Railway
+import os  # ✅ Este import es clave para que funcione en Railway
 
 # === TUS DATOS ===
 DERIV_TOKEN = "fZH8MyIQKvukkvF"
@@ -87,7 +87,6 @@ def recibir_alerta():
     threading.Thread(target=iniciar_operacion_en_hilo, args=(signal_data,)).start()
     return "✅ Señal recibida", 200
 
-# === ESTO ES LO QUE HACE QUE FUNCIONE EN RAILWAY ===
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
